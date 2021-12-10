@@ -31,8 +31,8 @@ for i in range(df['ФИО'].size):
 
 # Создание нового файла, запись в него данных и добавление форматирования
 with pd.ExcelWriter('../Таблица_безфио.xlsx', engine='xlsxwriter') as wb:
-    df.to_excel(wb, sheet_name='Лист1', index=False)
-    sheet = wb.sheets['Лист1']
+    df.to_excel(wb, sheet_name='Данные', index=False)
+    sheet = wb.sheets['Данные']
     sheet.autofilter('A1:AA'+str(df.shape[0]))
 
 # -------------------------------- Форматирование нового файла -----------------------------------
@@ -58,6 +58,5 @@ with pd.ExcelWriter('../Таблица_безфио.xlsx', engine='xlsxwriter') 
 # Удаление старого файла
 import os
 os.remove(file_src)
-
 
 print('done')
